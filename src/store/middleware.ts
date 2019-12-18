@@ -9,8 +9,9 @@ const middleware: Middleware = ({ dispatch }: MiddlewareAPI) => (
   switch (action.type) {
     case SEARCH:
       const term = action.payload.term;
+      const weirdness = action.payload.weirdness;
       axios({
-        url: `http://api.giphy.com/v1/gifs/translate?s=${term}&api_key=uq3F49wiUlbx2YSBAzLaBZhlY1SAC4K2&weirdness=1`
+        url: `http://api.giphy.com/v1/gifs/translate?s=${term}&api_key=uq3F49wiUlbx2YSBAzLaBZhlY1SAC4K2&weirdness=${weirdness}`
       })
         .then(response => {
           dispatch(
